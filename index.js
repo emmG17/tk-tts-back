@@ -5,7 +5,7 @@ const bodyParser = require('body-parser');
 const cors = require('cors')
 
 const app = express();
-const port = 3000; // You can change the port number if needed
+const port = process.env.PORT || 3000; // You can change the port number if needed
 
 app.use(bodyParser.json());
 

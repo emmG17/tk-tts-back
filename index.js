@@ -1,15 +1,19 @@
+require("dotenv").config();
 const express = require("express");
 const axios = require("axios");
 const base64 = require("base64-js");
 const bodyParser = require("body-parser");
 const cors = require("cors");
+const morgan = require("morgan")
 
 const app = express();
-const port = 3000; // You can change the port number if needed
+const port = process.env.PORT || 3000; // You can change the port number if needed
 
 app.use(bodyParser.json());
 
 app.use(cors());
+
+app.use(morgan("combined"))
 
 async function createUrl(voice, text) {
   const baseUrl =
